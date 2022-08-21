@@ -1,0 +1,7 @@
+{{#if buttonLikeLink}}
+  <a class="base-button {{ buttonClass }}" href="{{ href }}">{{ text }}</a>
+{{ else }}
+  <button class="base-button {{ buttonClass }}" type="{{ type }}">
+    {{ text }}
+  </button>
+{{/if}}

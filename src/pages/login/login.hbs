@@ -1,0 +1,14 @@
+<div class="popup auth">
+  <div class="popup-title">
+    {{> icons login=true}}
+    <h2 class="popup-title__text">Войти</h2>
+  </div>
+  <form action="#" class="auth-form">
+    {{#each inputs}}
+      {{> input }}
+    {{/each}}
+    {{#each buttons}}
+      {{> button }}
+    {{/each}}
+  </form>
+</div>

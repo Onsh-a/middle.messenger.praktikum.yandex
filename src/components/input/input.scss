@@ -1,0 +1,79 @@
+.auth-form {
+  display: flex;
+  flex-direction: column;
+
+  .base-input__wrapper {
+    position: relative;
+    margin-bottom: 45px;
+
+    .base-input {
+      width: 100%;
+      border-radius: $base-border-radius;
+      border: 1px solid $base-color;
+      padding: 12px 10px;
+      max-height: 37px;
+
+      &:focus {
+        border: 1px solid $focus-color;
+        outline: none;
+      }
+    }
+
+    .base-label {
+      position: absolute;
+      color: $placeholder-color;
+      width: 100%;
+      font-size: 12px;
+      line-height: 16px;
+      padding: 10px 10px;
+      transition: .2s;
+      cursor: text;
+    }
+
+    &.active {
+      .base-label {
+        font-size: 10px;
+        line-height: 12px;
+        padding: 5px 10px;
+      }
+
+      .base-input {
+        padding: 18px 10px 4px;
+      }
+    }
+
+    &:not(:last-of-type) {
+      margin-bottom: 22px;
+    }
+  }
+}
+
+.settings-input {
+  padding: 10px 0;
+  border: none;
+  font-size: 13px;
+  line-height: 13px;
+  text-align: end;
+  color: #999999;
+  font-weight: 500;
+
+  &[readonly]:focus {
+    outline: none;
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &:not(:last-of-type) {
+      border-bottom: 1px solid #EAEAEA;
+    }
+  }
+}
+
+.settings-label {
+  font-size: 13px;
+  line-height: 13px;
+}
+

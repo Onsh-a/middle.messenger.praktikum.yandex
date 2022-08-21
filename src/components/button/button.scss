@@ -1,0 +1,52 @@
+.base-button {
+  font-size: 13px;
+  line-height: 13px;
+  border-radius: $base-border-radius;
+  border: none;
+  padding: 12px 10px;
+  cursor: pointer;
+  transition: .2s;
+
+  &.common {
+    background-color: $base-color;
+    color: #FFFFFF;
+
+    &:hover {
+      background-color: $base-color-hover;
+    }
+
+    &.danger {
+      background-color: $danger-color;
+      &:hover {
+        background-color: $danger-hover;
+      }
+    }
+
+    &.disable {
+      background-color: #C3C3C3;
+      cursor: not-allowed;
+      color: $base-color;
+    }
+  }
+
+  &.button-like-link {
+    text-align: center;
+    color: $base-color;
+    text-decoration: none;
+    position: relative;
+    align-self: center;
+
+    &:hover {
+      &::before {
+        content: '';
+        height: 1px;
+        width: calc(100% - 18px);
+        position: absolute;
+        bottom: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: $base-color;
+      }
+    }
+  }
+}
