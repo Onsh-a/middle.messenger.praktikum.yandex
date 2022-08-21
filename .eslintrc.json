@@ -1,0 +1,7 @@
+{
+  "extends": "airbnb",
+  "rules": {
+    "no-undef": "off",
+    "class-methods-use-this": "off"
+  }
+}

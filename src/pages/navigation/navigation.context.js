@@ -32,7 +32,7 @@ const navigationContext = {
       href: '/any-url-that-does-not-exist',
       title: 'Страница 404 ошибки',
     },
-  ]
-}
+  ],
+};
 
-export default navigationContext
+export default navigationContext;

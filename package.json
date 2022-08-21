@@ -12,6 +12,8 @@
   "devDependencies": {
     "@anikin/parcel-transformer-handlebars-precompile": "^1.0.1",
     "@parcel/transformer-sass": "^2.7.0",
+    "eslint": "^8.22.0",
+    "eslint-config-airbnb": "^19.0.4",
     "handlebars": "^4.7.7",
     "nodemon": "^2.0.19",
     "parcel": "^2.7.0"
