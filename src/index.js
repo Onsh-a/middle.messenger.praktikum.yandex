@@ -1,16 +1,18 @@
 // templates
-import mainNavigationPage from "./index.hbs";
+import mainNavigationPage from "./pages/navigation/navigation.hbs";
 import logInPage from "./pages/login/login.hbs";
 import signInPage from "./pages/signin/signin.hbs";
 import pageNotFoundPage from "./pages/staticPages/pageNotFound.hbs";
 import serverErrorPage from "./pages/staticPages/errorPage.hbs";
 import accountSettingsPage from "./pages/account/settings.hbs";
+import chatsPage from "./pages/chats/chats.hbs";
 
 // context
 import logInContext from "./pages/login/login.context.js";
-import settingsContext from "./pages/account/settings.context"
-import changePasswordContext from "./pages/account/change-password.context"
-import editProfileContext from "./pages/account/edit-profile.context"
+import settingsContext from "./pages/account/settings.context";
+import changePasswordContext from "./pages/account/change-password.context";
+import editProfileContext from "./pages/account/edit-profile.context";
+import navigationContext from "./pages/navigation/navigation.context";
 import signinContext from "./pages/signin/signin.context.js";
 import signinContext from "./pages/signin/signin.context.js"
 
@@ -31,7 +33,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 	switch(window.location.pathname) {
 		case "/":
-			root.innerHTML = mainNavigationPage();
+			root.innerHTML = mainNavigationPage(navigationContext);
 			break;
 		case "/login":
 			root.innerHTML = logInPage(logInContext);
@@ -43,6 +45,11 @@ window.addEventListener("DOMContentLoaded", () => {
 			document.title = "Регистрация";
 			input.initInputs();
 			break;
+    case "/chats":
+      root.innerHTML = chatsPage();
+      document.title = "Мои чаты";
+      input.initInputs();
+      break;
 		case "/server-error":
 			root.innerHTML = serverErrorPage();
 			document.title = "Упс... произошла ошибка";
