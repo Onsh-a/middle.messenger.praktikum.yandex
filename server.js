@@ -1,6 +1,13 @@
-const express = require('express');
+import dotenv from 'dotenv';
+import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const app = express();
-const PORT = 3000;
+dotenv.config();
+
+const PORT = process.env.PORT || 3000;
 
 app.use(express.static(__dirname + '/dist'));
 
@@ -9,5 +16,5 @@ app.get('*', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`server's up and running on port ${PORT}`);
+  console.log(`server is up and running on port ${PORT}`);
 })

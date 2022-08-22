@@ -2,6 +2,7 @@
   "name": "chat",
   "version": "1.0.0",
   "description": "chat app for practicum",
+  "type": "module",
   "scripts": {
     "start": "npm run build && node server.js",
     "dev": "parcel src/index.html --no-cache",
@@ -19,6 +20,7 @@
     "parcel": "^2.7.0"
   },
   "dependencies": {
+    "dotenv": "^16.0.1",
     "express": "^4.18.1"
   }
 }
