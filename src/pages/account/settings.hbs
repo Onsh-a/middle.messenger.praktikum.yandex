@@ -1,0 +1,24 @@
+<section class="settings">
+  <a href="/" class="settings-back"></a>
+  <div class="settings-container">
+    <div class="settings__avatar">
+      <div class="settings__avatar-edit" data-trigger-modal></div>
+      <div class="settings__avatar-name">
+        {{ name }}
+      </div>
+    </div>
+
+    <form action="">
+      {{#each inputs}}
+        {{> input }}
+      {{/each}}
+    </form>
+
+    <div class="controls">
+    {{#each buttons}}
+      {{> button }}
+    {{/each}}
+    </div>
+  </div>
+  {{> modal }}
+</section>

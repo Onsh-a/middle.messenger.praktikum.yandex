@@ -1,0 +1,20 @@
+@import "reset";
+@import "fonts";
+@import "variables";
+@import "src/pages/staticPages/static";
+@import "src/pages/login/login";
+@import "src/pages/account/settings";
+@import "src/pages/navigation/navigation";
+@import "src/pages/chats/chats";
+@import "src/components/input/input";
+@import "src/components/button/button";
+@import "src/components/modal/modal";
+
+body {
+  background: $base-gradient;
+  font-family: $base-font;
+}
+
+main {
+  height: 100%;
+}

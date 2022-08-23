@@ -1,0 +1,115 @@
+.settings {
+  background-color: #FFFFFF;
+  height: 100vh;
+  display: flex;
+
+  &-container {
+    max-width: 510px;
+    width: 100%;
+    margin: 60px auto 0;
+  }
+
+  &__avatar {
+    margin-bottom: 60px;
+  }
+
+  &__avatar-edit {
+    width: 130px;
+    height: 130px;
+    background-color: #EFEFEF;
+    position: relative;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    cursor: pointer;
+    transition: .2s;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+      background-image: url("/static/icons/picture.svg");
+    }
+
+    &:hover {
+      background: #777777;
+
+      &::before {
+        content: none;
+      }
+
+      &::after {
+        content: 'Поменять аватар';
+        color: #FFFFFF;
+        position: absolute;
+        font-size: 13px;
+        line-height: 16px;
+        text-align: center;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+      }
+    }
+  }
+
+  &__avatar-name {
+    font-weight: 500;
+    color: $base-color;
+    text-align: center;
+  }
+
+  &-back {
+    height: 100%;
+    width: 64px;
+    position: relative;
+    background-color: #FBFBFB;
+    border-right: 1px solid #EAEAEA;
+    transition: .2s;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #EAEAEA;
+    }
+
+    &::before {
+      content: '';
+      background-image: url("/static/icons/back.svg");
+      position: absolute;
+      width: 28px;
+      height: 28px;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+    }
+  }
+
+  form {
+    margin-bottom: 35px;
+  }
+
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+
+    .base-button {
+      width: calc(50% - 10px);
+
+      &:first-child {
+        margin-right: 20px;
+      }
+
+      &:only-child {
+        width: 100%;
+        margin: 0;
+      }
+    }
+
+    .base-button.danger {
+      width: 100%;
+      margin-top: 20px;
+    }
+  }
+}

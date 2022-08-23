@@ -1,0 +1,20 @@
+<div class="base-modal">
+  <div class="base-modal__container">
+    <div class="base-modal__title">
+      {{> icons file=true }}
+      <h3 class="base-modal__title-text">Загрузите фото</h3>
+    </div>
+
+    <button class="base-modal__upload">
+      Загрузить фото
+    </button>
+
+    {{> button text="Отменить" buttonClass="common danger" }}
+    {{> button text="Сохранить" buttonClass="common disable" }}
+
+    <button class="base-modal__close">
+      {{> icons cross=true }}
+      Закрыть
+    </button>
+  </div>
+</div>
