@@ -22,8 +22,8 @@ import './components/icons/icons';
 import './components/modal/modal';
 
 // utils
-import Input from './utils/input';
-import Modal from './utils/modal';
+import Input from './utils/Input';
+import Modal from './utils/Modal';
 
 window.addEventListener('DOMContentLoaded', () => {
   const root = document.querySelector('#app');
