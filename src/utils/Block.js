@@ -65,11 +65,13 @@ class Block {
         this.init();
         this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
     }
-    init() { }
+    init() {
+    }
     _componentDidMount() {
         this.componentDidMount();
     }
-    componentDidMount() { }
+    componentDidMount() {
+    }
     dispatchComponentDidMount() {
         this.eventBus().emit(Block.EVENTS.FLOW_CDM);
         Object.values(this.children).forEach(child => child.dispatchComponentDidMount());

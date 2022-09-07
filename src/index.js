@@ -7,6 +7,9 @@ import serverErrorPage from './pages/staticPages/errorPage.hbs';
 import accountSettingsPage from './pages/account/settings.hbs';
 import chatsPage from './pages/chats/chats.hbs';
 
+//pages
+import { Login } from "./pages/login/login";
+
 // context
 import logInContext from './pages/login/login.context';
 import settingsContext from './pages/account/settings.context';
@@ -32,12 +35,15 @@ window.addEventListener('DOMContentLoaded', () => {
 
   switch (window.location.pathname) {
     case '/':
-      root.innerHTML = mainNavigationPage(navigationContext);
+      root.innerHTML = mainNavigationPage({...navigationContext});
       break;
     case '/login':
-      root.innerHTML = logInPage(logInContext);
+      const LoginPage = new Login({...logInContext});
+      console.log(LoginPage.children);
+      root.append(LoginPage.getContent());
+      LoginPage.dispatchComponentDidMount();
       document.title = 'Логин';
-      input.initInputs();
+      // input.initInputs();
       break;
     case '/signin':
       root.innerHTML = signInPage(signinContext);
