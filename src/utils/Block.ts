@@ -72,13 +72,7 @@ class Block {
     eventBus.on(Block.EVENTS.FLOW_RENDER, this._render.bind(this));
   }
 
-  _createResources() {
-    const {tagName} = this._meta;
-    this._element = this._createDocumentElement(tagName);
-  }
-
   private _init() {
-    this._createResources();
 
     this.init();
 
@@ -126,9 +120,7 @@ class Block {
   private _render() {
     const fragment = this.render();
 
-    this._element!.innerHTML = '';
-
-    this._element!.append(fragment);
+    this._element = fragment.firstElementChild as HTMLElement;
 
     this._addEvents();
   }

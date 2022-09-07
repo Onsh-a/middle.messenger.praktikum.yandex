@@ -6,20 +6,19 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Login = void 0;
 const Block_1 = __importDefault(require("../../utils/Block"));
 const input_1 = require("../../components/input/input");
+const button_1 = require("../../components/button/button");
 const login_hbs_1 = __importDefault(require("./login.hbs"));
 class Login extends Block_1.default {
     constructor(props) {
         super('div', props);
     }
     init() {
-        this.children.inputLogin = new input_1.Input(Object.assign({}, this.props.inputs[0]));
-        this.children.inputPassword = new input_1.Input(Object.assign({}, this.props.inputs[1]));
-        // this.children.input2 = new Input({
-        //   name: 'логин',
-        //   key: 'login',
-        //   type: 'text',
-        //   common: true,
-        // });
+        this.props.buttons.forEach((button, index) => {
+            this.children[button.componentName] = new button_1.Button(Object.assign({}, this.props.buttons[index]));
+        });
+        this.props.inputs.forEach((input, index) => {
+            this.children[input.componentName] = new input_1.Input(Object.assign({}, this.props.inputs[index]));
+        });
     }
     render() {
         return this.compile(login_hbs_1.default, this.props);

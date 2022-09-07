@@ -4,12 +4,14 @@ const loginContext = {
       name: 'логин',
       key: 'login',
       type: 'text',
+      componentName: 'inputLogin',
       common: true,
     },
     {
       name: 'пароль',
       key: 'password',
       type: 'text',
+      componentName: 'inputPassword',
       common: true,
     }],
   buttons: [
@@ -18,6 +20,7 @@ const loginContext = {
       type: 'submit',
       href: null,
       buttonClass: 'common',
+      componentName: 'buttonEnter',
       buttonLikeLink: false,
     },
     {
@@ -25,6 +28,7 @@ const loginContext = {
       type: 'button-like-link',
       href: '/signin',
       buttonClass: 'button-like-link',
+      componentName: 'buttonNoAccount',
       buttonLikeLink: true,
     },
   ],

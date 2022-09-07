@@ -56,12 +56,7 @@ class Block {
         eventBus.on(Block.EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this));
         eventBus.on(Block.EVENTS.FLOW_RENDER, this._render.bind(this));
     }
-    _createResources() {
-        const { tagName } = this._meta;
-        this._element = this._createDocumentElement(tagName);
-    }
     _init() {
-        this._createResources();
         this.init();
         this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
     }
@@ -89,8 +84,7 @@ class Block {
     }
     _render() {
         const fragment = this.render();
-        this._element.innerHTML = '';
-        this._element.append(fragment);
+        this._element = fragment.firstElementChild;
         this._addEvents();
     }
     compile(template, context) {

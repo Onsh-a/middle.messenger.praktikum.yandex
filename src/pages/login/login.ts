@@ -1,10 +1,28 @@
 import Block from '../../utils/Block';
 import { Input } from '../../components/input/input';
+import { Button } from '../../components/button/button';
 import template from './login.hbs';
 
 interface loginPageProps {
   buttons: object | null;
   inputs: object | null;
+}
+
+interface buttonProps {
+  text: string,
+  type: string,
+  href: string | null,
+  buttonClass: string ,
+  componentName: string
+  buttonLikeLink: boolean
+}
+
+interface inputProps {
+  name: string,
+  key: string,
+  type: string,
+  common: boolean,
+  componentName: string,
 }
 
 export class Login extends Block {
@@ -13,18 +31,18 @@ export class Login extends Block {
   }
 
   init() {
-    this.children.inputLogin = new Input({
-      ...this.props.inputs[0]
-    });
-    this.children.inputPassword = new Input({
-      ...this.props.inputs[1]
-    });
-    // this.children.input2 = new Input({
-    //   name: 'логин',
-    //   key: 'login',
-    //   type: 'text',
-    //   common: true,
-    // });
+    this.props.buttons.forEach((button: buttonProps, index: number) => {
+      this.children[button.componentName] = new Button({
+        ...this.props.buttons[index]
+      })
+    })
+
+    this.props.inputs.forEach((input: inputProps, index: number) => {
+      this.children[input.componentName] = new Input({
+        ...this.props.inputs[index]
+      })
+    })
+
   }
 
   render() {

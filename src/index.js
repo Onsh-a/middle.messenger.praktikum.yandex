@@ -39,8 +39,8 @@ window.addEventListener('DOMContentLoaded', () => {
       break;
     case '/login':
       const LoginPage = new Login({...logInContext});
-      console.log(LoginPage.children);
       root.append(LoginPage.getContent());
+      input.initInputs();
       LoginPage.dispatchComponentDidMount();
       document.title = 'Логин';
       // input.initInputs();
