@@ -69,7 +69,7 @@ const settingsContext = {
         buttonClass: 'common disable',
         componentName: 'buttonSave',
       },
-    ]
+    ],
   },
   buttons: [
     {

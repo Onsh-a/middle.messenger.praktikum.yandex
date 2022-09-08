@@ -1,16 +1,12 @@
 // templates
 import mainNavigationPage from './pages/navigation/navigation.hbs';
-import logInPage from './pages/login/login.hbs';
-import signInPage from './pages/signin/signin.hbs';
-import serverErrorPage from './pages/staticPages/errorPage.hbs';
-import accountSettingsPage from './pages/account/settings.hbs';
 import chatsPage from './pages/chats/chats.hbs';
 
 // pages
-import { Login } from './pages/login/login';
-import { SignIn } from './pages/signin/signin';
-import { ErrorPage } from './pages/staticPages/errorPage';
-import { AccountPage } from './pages/account/settings';
+import { Login } from './pages/login/login.ts';
+import { SignIn } from './pages/signin/signin.ts';
+import { ErrorPage } from './pages/staticPages/errorPage.ts';
+import { AccountPage } from './pages/account/settings.ts';
 
 // context
 import errors from './pages/staticPages/errors.context';
@@ -22,30 +18,30 @@ import navigationContext from './pages/navigation/navigation.context';
 import signinContext from './pages/signin/signin.context';
 
 // components
-import './components/input/input';
-import './components/button/button';
-import './components/icons/icons';
-import './components/modal/modal';
+import './components/input/input.ts';
+import './components/button/button.ts';
+import './components/icons/icons.ts';
+import './components/modal/modal.ts';
 
 // utils
-import Input from './utils/Input';
-import Modal from './utils/Modal';
+import Input from './utils/Input.ts';
+import Modal from './utils/Modal.ts';
 
 window.addEventListener('DOMContentLoaded', () => {
   const root = document.querySelector('#app');
   const modal = new Modal();
   const input = new Input();
 
-  const setPage = (rootElement, pageComponent, props) => {
-    const page = new pageComponent({...props});
+  const setPage = (rootElement, PageComponent, props) => {
+    const page = new PageComponent({ ...props });
     rootElement.append(page.getContent());
     page.dispatchComponentDidMount();
     document.title = props.pageTitle || 'Название сайта';
-  }
+  };
 
   switch (window.location.pathname) {
     case '/':
-      root.innerHTML = mainNavigationPage({...navigationContext});
+      root.innerHTML = mainNavigationPage({ ...navigationContext });
       break;
     case '/login':
       setPage(root, Login, logInContext);
