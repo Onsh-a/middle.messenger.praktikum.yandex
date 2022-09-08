@@ -1,17 +1,9 @@
 import Block from '../../utils/Block';
+import { buttonProps } from "../../utils/types";
 import template from './button.hbs';
 
-interface ButtonProps {
-  text: string,
-  type: string,
-  href: string | null,
-  buttonClass: string ,
-  componentName: string
-  buttonLikeLink: boolean
-}
-
 export class Button extends Block {
-  constructor(props: ButtonProps) {
+  constructor(props: buttonProps) {
     super('div', props);
   }
 

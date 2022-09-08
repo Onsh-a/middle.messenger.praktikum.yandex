@@ -1,4 +1,5 @@
 const loginContext = {
+  pageTitle: 'Логин',
   inputs: [
     {
       name: 'логин',

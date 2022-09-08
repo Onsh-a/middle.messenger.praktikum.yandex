@@ -1,29 +1,8 @@
 import Block from '../../utils/Block';
 import { Input } from '../../components/input/input';
 import { Button } from '../../components/button/button';
+import { loginPageProps, buttonProps, inputProps } from '../../utils/types';
 import template from './login.hbs';
-
-interface loginPageProps {
-  buttons: object | null;
-  inputs: object | null;
-}
-
-interface buttonProps {
-  text: string,
-  type: string,
-  href: string | null,
-  buttonClass: string ,
-  componentName: string
-  buttonLikeLink: boolean
-}
-
-interface inputProps {
-  name: string,
-  key: string,
-  type: string,
-  common: boolean,
-  componentName: string,
-}
 
 export class Login extends Block {
   constructor(props: loginPageProps) {
@@ -42,7 +21,6 @@ export class Login extends Block {
         ...this.props.inputs[index]
       })
     })
-
   }
 
   render() {

@@ -2,16 +2,18 @@
 import mainNavigationPage from './pages/navigation/navigation.hbs';
 import logInPage from './pages/login/login.hbs';
 import signInPage from './pages/signin/signin.hbs';
-import pageNotFoundPage from './pages/staticPages/pageNotFound.hbs';
 import serverErrorPage from './pages/staticPages/errorPage.hbs';
 import accountSettingsPage from './pages/account/settings.hbs';
 import chatsPage from './pages/chats/chats.hbs';
 
-//components
-import { Login } from "./pages/login/login";
-import { SignIn } from "./pages/signin/signin";
+// pages
+import { Login } from './pages/login/login';
+import { SignIn } from './pages/signin/signin';
+import { ErrorPage } from './pages/staticPages/errorPage';
+import { AccountPage } from './pages/account/settings';
 
 // context
+import errors from './pages/staticPages/errors.context';
 import logInContext from './pages/login/login.context';
 import settingsContext from './pages/account/settings.context';
 import changePasswordContext from './pages/account/change-password.context';
@@ -34,24 +36,24 @@ window.addEventListener('DOMContentLoaded', () => {
   const modal = new Modal();
   const input = new Input();
 
+  const setPage = (rootElement, pageComponent, props) => {
+    const page = new pageComponent({...props});
+    rootElement.append(page.getContent());
+    page.dispatchComponentDidMount();
+    document.title = props.pageTitle || 'Название сайта';
+  }
+
   switch (window.location.pathname) {
     case '/':
       root.innerHTML = mainNavigationPage({...navigationContext});
       break;
     case '/login':
-      const LoginPage = new Login({...logInContext});
-      root.append(LoginPage.getContent());
+      setPage(root, Login, logInContext);
       input.initInputs();
-      LoginPage.dispatchComponentDidMount();
-      document.title = 'Логин';
-      // input.initInputs();
       break;
     case '/signin':
-      const SigninPage = new SignIn({...signinContext});
-      root.append(SigninPage.getContent());
+      setPage(root, SignIn, signinContext);
       input.initInputs();
-      SigninPage.dispatchComponentDidMount();
-      document.title = 'Регистрация';
       break;
     case '/chats':
       root.innerHTML = chatsPage();
@@ -59,26 +61,21 @@ window.addEventListener('DOMContentLoaded', () => {
       input.initInputs();
       break;
     case '/server-error':
-      root.innerHTML = serverErrorPage();
-      document.title = 'Упс... произошла ошибка';
+      setPage(root, ErrorPage, errors.serverError);
       break;
     case '/account-settings':
-      root.innerHTML = accountSettingsPage(settingsContext);
-      document.title = 'Настройки аккаунта';
+      setPage(root, AccountPage, settingsContext);
       modal.initModal('[data-trigger-modal]');
       break;
     case '/account-edit':
-      root.innerHTML = accountSettingsPage(editProfileContext);
-      document.title = 'Редактирование аккаунта';
+      setPage(root, AccountPage, editProfileContext);
       modal.initModal('[data-trigger-modal]');
       break;
     case '/change-password':
-      root.innerHTML = accountSettingsPage(changePasswordContext);
-      document.title = 'Изменение пароля';
+      setPage(root, AccountPage, changePasswordContext);
       modal.initModal('[data-trigger-modal]');
       break;
     default:
-      root.innerHTML = pageNotFoundPage();
-      document.title = 'Упс... нет такой страницы';
+      setPage(root, ErrorPage, errors.notFound);
   }
 });

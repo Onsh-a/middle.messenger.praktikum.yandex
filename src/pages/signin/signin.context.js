@@ -1,4 +1,5 @@
 const signinContext = {
+  pageTitle: 'Регистрация',
   inputs: [
     {
       name: 'почта',

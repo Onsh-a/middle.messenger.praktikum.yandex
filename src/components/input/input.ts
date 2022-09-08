@@ -1,15 +1,9 @@
 import Block from '../../utils/Block';
+import { inputProps } from "../../utils/types";
 import template from './input.hbs';
 
-interface InputProps {
-  name: string,
-  key: string,
-  type: string,
-  common: boolean,
-}
-
 export class Input extends Block {
-  constructor(props: InputProps) {
+  constructor(props: inputProps) {
     super('div', props);
   }
 

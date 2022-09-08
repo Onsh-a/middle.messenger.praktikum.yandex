@@ -1,11 +1,12 @@
 import Block from '../../utils/Block';
 import { Input } from '../../components/input/input';
 import { Button } from '../../components/button/button';
-import { signInProps, buttonProps, inputProps } from '../../utils/types';
-import template from './signin.hbs';
+import { Modal } from '../../components/modal/modal';
+import { loginPageProps, buttonProps, inputProps } from '../../utils/types';
+import template from './settings.hbs';
 
-export class SignIn extends Block {
-  constructor(props: signInProps) {
+export class AccountPage extends Block {
+  constructor(props: loginPageProps) {
     super('div', props);
   }
 
@@ -21,6 +22,12 @@ export class SignIn extends Block {
         ...this.props.inputs[index]
       })
     })
+
+    if (this.props.modal) {
+      this.children.modal = new Modal({
+        ...this.props.modal
+      })
+    }
   }
 
   render() {
