@@ -4,11 +4,14 @@
     <h2 class="popup-title__text">Создать аккаунт</h2>
   </div>
   <form action="#" class="auth-form">
-    {{#each inputs}}
-      {{> input }}
-    {{/each}}
-    {{#each buttons}}
-      {{> button }}
-    {{/each}}
+    {{{ inputEmail }}}
+    {{{ inputLogin }}}
+    {{{ inputName }}}
+    {{{ inputSurname }}}
+    {{{ inputPhone }}}
+    {{{ inputPassword }}}
+    {{{ inputRepeatPassword }}}
+    {{{ buttonSignin }}}
+    {{{ buttonLogin }}}
   </form>
 </div>

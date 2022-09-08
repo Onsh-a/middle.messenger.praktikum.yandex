@@ -7,8 +7,9 @@ import serverErrorPage from './pages/staticPages/errorPage.hbs';
 import accountSettingsPage from './pages/account/settings.hbs';
 import chatsPage from './pages/chats/chats.hbs';
 
-//pages
+//components
 import { Login } from "./pages/login/login";
+import { SignIn } from "./pages/signin/signin";
 
 // context
 import logInContext from './pages/login/login.context';
@@ -46,9 +47,11 @@ window.addEventListener('DOMContentLoaded', () => {
       // input.initInputs();
       break;
     case '/signin':
-      root.innerHTML = signInPage(signinContext);
-      document.title = 'Регистрация';
+      const SigninPage = new SignIn({...signinContext});
+      root.append(SigninPage.getContent());
       input.initInputs();
+      SigninPage.dispatchComponentDidMount();
+      document.title = 'Регистрация';
       break;
     case '/chats':
       root.innerHTML = chatsPage();
