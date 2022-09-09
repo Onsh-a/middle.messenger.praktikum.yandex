@@ -13,20 +13,20 @@ export class AccountPage extends Block {
   init() {
     this.props.buttons.forEach((button: buttonProps, index: number) => {
       this.children[button.componentName] = new Button({
-        ...this.props.buttons[index]
-      })
-    })
+        ...this.props.buttons[index],
+      });
+    });
 
     this.props.inputs.forEach((input: inputProps, index: number) => {
       this.children[input.componentName] = new Input({
-        ...this.props.inputs[index]
-      })
-    })
+        ...this.props.inputs[index],
+      });
+    });
 
     if (this.props.modal) {
       this.children.modal = new Modal({
-        ...this.props.modal
-      })
+        ...this.props.modal,
+      });
     }
   }
 

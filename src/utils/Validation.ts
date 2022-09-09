@@ -31,14 +31,16 @@ export class Validator {
       desc: 'Может начинаться с плюса и содержит только цифры',
     },
   };
+
   private _element: HTMLInputElement | null = null;
+
   private _errorBlock: HTMLElement | null = null;
 
   validate(event: HTMLInputEvent) {
     if (!event.target && !Validator._findErrorBlock(event.target)) throw new Error('Failed to find object of validation');
     this._element = event.target;
     this._errorBlock = Validator._findErrorBlock(this._element);
-    const value = this._element.value;
+    const { value } = this._element;
     const validationType = this._element.dataset.validation || 'none';
     const checkRegExp:RegExp = this._validationRules[validationType].match;
     const hasError = !checkRegExp.test(value);

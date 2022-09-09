@@ -18,7 +18,7 @@ export interface buttonProps {
   text: string,
   type: string,
   href: string | null,
-  buttonClass: string ,
+  buttonClass: string,
   componentName: string
   buttonLikeLink: boolean
 }
@@ -46,7 +46,7 @@ export interface ButtonProps {
   text: string,
   type: string,
   href: string | null,
-  buttonClass: string ,
+  buttonClass: string,
   componentName: string
   buttonLikeLink: boolean
 }
@@ -70,4 +70,8 @@ export interface modalProps {
 
 export interface HTMLInputEvent {
   target: HTMLInputElement,
+}
+
+export interface chatPreviewProps {
+
 }

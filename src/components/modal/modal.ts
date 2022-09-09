@@ -1,7 +1,7 @@
 import Block from '../../utils/Block';
 import { Button } from '../button/button';
 import template from './modal.hbs';
-import { modalButtonProps, modalProps } from "../../utils/types";
+import { modalButtonProps, modalProps } from '../../utils/types';
 
 export class Modal extends Block {
   constructor(props: modalProps) {
@@ -11,9 +11,9 @@ export class Modal extends Block {
   init() {
     this.props.buttons.forEach((button: modalButtonProps, index: number) => {
       this.children[button.componentName] = new Button({
-        ...this.props.buttons[index]
-      })
-    })
+        ...this.props.buttons[index],
+      });
+    });
   }
 
   render() {

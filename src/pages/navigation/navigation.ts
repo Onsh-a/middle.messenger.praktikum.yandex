@@ -1,5 +1,5 @@
 import Block from '../../utils/Block';
-import { NavigationLink } from '../../components/navigationLink/navLink'
+import { NavigationLink } from '../../components/navigationLink/navLink';
 import { navigationProps, navigationLinkProps } from '../../utils/types';
 import template from './navigation.hbs';
 
@@ -11,9 +11,9 @@ export class Navigation extends Block {
   init() {
     this.props.links.forEach((link: navigationLinkProps, index: number) => {
       this.children[link.componentName] = new NavigationLink({
-        ...this.props.links[index]
-      })
-    })
+        ...this.props.links[index],
+      });
+    });
   }
 
   render() {
