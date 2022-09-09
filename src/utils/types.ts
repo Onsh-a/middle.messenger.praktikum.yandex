@@ -1,11 +1,17 @@
 export interface loginPageProps {
+  pageTitle: string,
   buttons: object | null;
   inputs: object | null;
 }
 
 export interface signInProps {
+  pageTitle: string,
   buttons: object | null;
   inputs: object | null;
+}
+
+export interface chatsPageProps {
+  pageTitle: string,
 }
 
 export interface buttonProps {
@@ -25,6 +31,17 @@ export interface inputProps {
   componentName: string,
 }
 
+export interface navigationProps {
+  pageTitle: string,
+  links: object[],
+}
+
+export interface navigationLinkProps {
+  href: string,
+  componentName: string,
+  title: string,
+}
+
 export interface ButtonProps {
   text: string,
   type: string,
@@ -35,6 +52,7 @@ export interface ButtonProps {
 }
 
 export interface errorPageProps {
+  pageTitle: string,
   errorCode: string,
   errorMessage: string,
   errorLink: string,
@@ -48,4 +66,8 @@ export interface modalButtonProps {
 
 export interface modalProps {
   buttons: object[],
+}
+
+export interface HTMLInputEvent {
+  target: HTMLInputElement,
 }

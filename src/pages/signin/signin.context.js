@@ -7,6 +7,8 @@ const signinContext = {
       type: 'text',
       componentName: 'inputEmail',
       common: true,
+      validation_rule: 'email',
+      has_error: false,
     },
     {
       name: 'логин',
@@ -14,6 +16,8 @@ const signinContext = {
       type: 'text',
       componentName: 'inputLogin',
       common: true,
+      validation_rule: 'login',
+      has_error: false,
     },
     {
       name: 'имя',
@@ -21,6 +25,8 @@ const signinContext = {
       type: 'text',
       componentName: 'inputName',
       common: true,
+      validation_rule: 'name',
+      has_error: false,
     },
     {
       name: 'фамилия',
@@ -28,6 +34,8 @@ const signinContext = {
       type: 'text',
       componentName: 'inputSurname',
       common: true,
+      validation_rule: 'name',
+      has_error: false,
     },
     {
       name: 'телефон',
@@ -35,6 +43,8 @@ const signinContext = {
       type: 'text',
       componentName: 'inputPhone',
       common: true,
+      validation_rule: 'phone',
+      has_error: false,
     },
     {
       name: 'пароль',
@@ -42,6 +52,8 @@ const signinContext = {
       type: 'password',
       componentName: 'inputPassword',
       common: true,
+      validation_rule: 'password',
+      has_error: false,
     },
     {
       name: 'подтвердите пароль',
@@ -49,6 +61,8 @@ const signinContext = {
       type: 'password',
       componentName: 'inputRepeatPassword',
       common: true,
+      validation_rule: 'password',
+      has_error: false,
     },
   ],
   buttons: [

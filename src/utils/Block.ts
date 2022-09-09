@@ -1,5 +1,5 @@
-import {EventBus} from "./EventBus";
-import {nanoid} from 'nanoid';
+import { EventBus } from "./EventBus";
+import { nanoid } from 'nanoid';
 
 // Нельзя создавать экземпляр данного класса
 class Block {
@@ -11,7 +11,7 @@ class Block {
   };
 
   public id = nanoid(6);
-  protected props: any;
+  public props: any;
   public children: Record<string, Block>;
   private eventBus: () => EventBus;
   private _element: HTMLElement | null = null;
@@ -155,6 +155,7 @@ class Block {
   }
 
   protected render(): DocumentFragment {
+    console.log('asd');
     return new DocumentFragment();
   }
 

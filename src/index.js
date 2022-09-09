@@ -1,21 +1,20 @@
-// templates
-import mainNavigationPage from './pages/navigation/navigation.hbs';
-import chatsPage from './pages/chats/chats.hbs';
-
 // pages
+import { Navigation } from './pages/navigation/navigation.ts';
 import { Login } from './pages/login/login.ts';
 import { SignIn } from './pages/signin/signin.ts';
+import { Chats } from './pages/chats/chats.ts';
 import { ErrorPage } from './pages/staticPages/errorPage.ts';
 import { AccountPage } from './pages/account/settings.ts';
 
 // context
-import errors from './pages/staticPages/errors.context';
-import logInContext from './pages/login/login.context';
-import settingsContext from './pages/account/settings.context';
-import changePasswordContext from './pages/account/change-password.context';
-import editProfileContext from './pages/account/edit-profile.context';
-import navigationContext from './pages/navigation/navigation.context';
-import signinContext from './pages/signin/signin.context';
+import errors from './pages/staticPages/errors.context.js';
+import logInContext from './pages/login/login.context.js';
+import settingsContext from './pages/account/settings.context.js';
+import changePasswordContext from './pages/account/change-password.context.js';
+import editProfileContext from './pages/account/edit-profile.context.js';
+import navigationContext from './pages/navigation/navigation.context.js';
+import signinContext from './pages/signin/signin.context.js';
+import chatsContext from './pages/chats/chats.context.js';
 
 // components
 import './components/input/input.ts';
@@ -41,7 +40,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   switch (window.location.pathname) {
     case '/':
-      root.innerHTML = mainNavigationPage({ ...navigationContext });
+      setPage(root, Navigation, navigationContext);
       break;
     case '/login':
       setPage(root, Login, logInContext);
@@ -52,8 +51,7 @@ window.addEventListener('DOMContentLoaded', () => {
       input.initInputs();
       break;
     case '/chats':
-      root.innerHTML = chatsPage();
-      document.title = 'Мои чаты';
+      setPage(root, Chats, chatsContext);
       input.initInputs();
       break;
     case '/server-error':

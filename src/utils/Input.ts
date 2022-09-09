@@ -12,14 +12,14 @@ class Input {
   }
 
   handleFocus(e: Event): void {
-    const {target} = e;
+    const { target } = e;
     if (target && target instanceof HTMLElement && target.parentNode) {
       (<HTMLElement>target.parentNode).classList.add('active');
     }
   }
 
   handleBlur(e: Event): void {
-    const {target} = e;
+    const { target } = e;
     if (target && target instanceof HTMLInputElement && target.parentNode && !target.value) {
       (<HTMLElement>target.parentNode).classList.remove('active');
     }

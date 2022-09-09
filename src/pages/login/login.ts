@@ -1,6 +1,7 @@
 import Block from '../../utils/Block';
 import { Input } from '../../components/input/input';
 import { Button } from '../../components/button/button';
+import { Validator } from '../../utils/Validation';
 import { loginPageProps, buttonProps, inputProps } from '../../utils/types';
 import template from './login.hbs';
 
@@ -18,7 +19,10 @@ export class Login extends Block {
 
     this.props.inputs.forEach((input: inputProps, index: number) => {
       this.children[input.componentName] = new Input({
-        ...this.props.inputs[index]
+        ...this.props.inputs[index],
+        events: {
+          focusout: () => { console.log('aaa')}
+        }
       })
     })
   }

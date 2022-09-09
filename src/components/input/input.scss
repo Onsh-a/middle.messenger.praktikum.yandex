@@ -13,6 +13,25 @@
       padding: 12px 10px;
       max-height: 37px;
 
+      &.error {
+        border: 1px solid $danger-color;
+
+        & + .base-input__error {
+          opacity: 1;
+          transition: .3s;
+        }
+      }
+
+      &__error {
+        opacity: 0;
+        color: $danger-color;
+        font-size: 10px;
+        line-height: 12px;
+        padding: 0 10px;
+        position: absolute;
+        bottom: -16px;
+      }
+
       &:focus {
         border: 1px solid $focus-color;
         outline: none;
