@@ -3,7 +3,7 @@ import NavigationLink from '../../components/navigationLink/navLink';
 import { navigationProps, navigationLinkProps } from '../../utils/types';
 import template from './navigation.hbs';
 
-export class Navigation extends Block {
+export default class Navigation extends Block {
   constructor(props: navigationProps) {
     super('div', props);
   }

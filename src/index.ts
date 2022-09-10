@@ -1,20 +1,22 @@
+// interface
+import { defaultPageProps } from './utils/types';
 // pages
-import { Navigation } from './pages/navigation/navigation.ts';
-import { Login } from './pages/login/login.ts';
-import { SignIn } from './pages/signin/signin.ts';
-import { Chats } from './pages/chats/chats.ts';
-import { ErrorPage } from './pages/staticPages/errorPage.ts';
-import { AccountPage } from './pages/account/settings.ts';
+import Navigation from './pages/navigation/navigation';
+import Login from './pages/login/login';
+import SignIn from './pages/signin/signin';
+import Chats from './pages/chats/chats';
+import ErrorPage from './pages/staticPages/errorPage';
+import AccountPage from './pages/account/settings';
 
 // context
-import errors from './pages/staticPages/errors.context.js';
-import logInContext from './pages/login/login.context.js';
-import settingsContext from './pages/account/settings.context.js';
-import changePasswordContext from './pages/account/change-password.context.js';
-import editProfileContext from './pages/account/edit-profile.context.js';
-import navigationContext from './pages/navigation/navigation.context.js';
-import signinContext from './pages/signin/signin.context.js';
-import chatsContext from './pages/chats/chats.context.js';
+import errors from './pages/staticPages/errors.context';
+import logInContext from './pages/login/login.context';
+import settingsContext from './pages/account/settings.context';
+import changePasswordContext from './pages/account/change-password.context';
+import editProfileContext from './pages/account/edit-profile.context';
+import navigationContext from './pages/navigation/navigation.context';
+import signinContext from './pages/signin/signin.context';
+import chatsContext from './pages/chats/chats.context';
 
 // components
 import './components/input/input.ts';
@@ -23,15 +25,16 @@ import './components/icons/icons.ts';
 import './components/modal/modal.ts';
 
 // utils
-import Input from './utils/Input.ts';
-import Modal from './utils/Modal.ts';
+import Input from './utils/Input';
+import Modal from './utils/Modal';
 
 window.addEventListener('DOMContentLoaded', () => {
   const root = document.querySelector('#app');
   const modal = new Modal();
   const input = new Input();
 
-  const setPage = (rootElement, PageComponent, props) => {
+  const setPage = (rootElement:Element | null, PageComponent:any, props:defaultPageProps) => {
+    if (!rootElement) throw new Error('Рут элемент не найден');
     const page = new PageComponent({ ...props });
     rootElement.append(page.getContent());
     page.dispatchComponentDidMount();

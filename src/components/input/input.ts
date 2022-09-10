@@ -16,7 +16,7 @@ export default class Input extends Block {
       return;
     }
     this._element.classList.remove('error');
-  }
+  };
 
   render() {
     return this.compile(template, this.props);

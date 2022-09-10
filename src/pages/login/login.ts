@@ -2,12 +2,14 @@ import Block from '../../utils/Block';
 import Input from '../../components/input/input';
 import Button from '../../components/button/button';
 import Validator from '../../utils/Validation';
-import {loginPageProps, buttonProps, inputProps, HTMLInputEvent} from '../../utils/types';
+import {
+  loginPageProps, buttonProps, inputProps, HTMLInputEvent,
+} from '../../utils/types';
 import template from './login.hbs';
 
 const validation = new Validator();
 
-export class Login extends Block {
+export default class Login extends Block {
   constructor(props: loginPageProps) {
     super('div', props);
   }
@@ -25,11 +27,11 @@ export class Login extends Block {
         events: {
           focusout: (e: HTMLInputEvent) => {
             const { hasError, errorMessage } = validation.validate(e);
-            // если есть идея, как правильно сказать тут ts, что в this.children[input.componentName]
+            // если есть идея, как правильно сказать ts, что в this.children[input.componentName]
             // лежит инстанс класса input, буду благодарен
             // @ts-ignore
             this.children[input.componentName].toggleError(hasError, errorMessage);
-          }
+          },
         },
       });
     });

@@ -1,4 +1,4 @@
-export class EventBus {
+export default class EventBus {
   private readonly listeners: Record<string, Array<() => void>> = {};
 
   on(event: string, callback: Function) {

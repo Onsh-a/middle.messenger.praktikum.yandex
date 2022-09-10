@@ -15,6 +15,19 @@
     height: 50px;
     background-color: #EFEFEF;
     margin-right: 16px;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      background-size: contain;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+      background-image: url("/static/icons/picture.svg");
+    }
   }
 
   &__wrapper {

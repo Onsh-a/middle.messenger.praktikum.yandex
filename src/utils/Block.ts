@@ -1,5 +1,5 @@
 import { nanoid } from 'nanoid';
-import { EventBus } from './EventBus';
+import EventBus from './EventBus';
 
 // Нельзя создавать экземпляр данного класса
 class Block {
@@ -106,7 +106,7 @@ class Block {
   }
 
   protected componentDidUpdate(oldProps: any, newProps: any) {
-    return true;
+    return JSON.stringify(oldProps) === JSON.stringify(newProps);
   }
 
   setProps = (nextProps: any) => {
@@ -124,13 +124,13 @@ class Block {
   private _render() {
     const fragment = this.render();
 
-    let newElement = this._element = fragment.firstElementChild as HTMLElement;
+    const newElement = fragment.firstElementChild as HTMLElement;
 
     if (this._element) {
       this._element.replaceWith(newElement);
     }
 
-    this._element = newElement
+    this._element = newElement;
 
     this._addEvents();
   }
@@ -164,7 +164,6 @@ class Block {
   }
 
   protected render(): DocumentFragment {
-    console.log('asd');
     return new DocumentFragment();
   }
 

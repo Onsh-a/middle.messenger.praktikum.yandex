@@ -41,6 +41,6 @@ export default class Validator {
     const { value } = this._element;
     const validationType = this._element.dataset.validation || 'none';
     const { checkRegExp, errorMessage } = this._validationRules[validationType];
-    return { hasError: !checkRegExp.test(value), errorMessage: errorMessage };
+    return { hasError: !checkRegExp.test(value), errorMessage };
   }
 }

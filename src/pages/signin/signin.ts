@@ -9,7 +9,7 @@ import Validator from '../../utils/Validation';
 
 const validation = new Validator();
 
-export class SignIn extends Block {
+export default class SignIn extends Block {
   constructor(props: signInProps) {
     super('div', props);
   }
@@ -27,15 +27,13 @@ export class SignIn extends Block {
         events: {
           focusout: (e: HTMLInputEvent) => {
             const { hasError, errorMessage } = validation.validate(e);
-            // если есть идея, как правильно сказать тут ts, что в this.children[input.componentName]
+            // если есть идея, как правильно сказать ts, что в this.children[input.componentName]
             // лежит инстанс класса input, буду благодарен
             // @ts-ignore
             this.children[input.componentName].toggleError(hasError, errorMessage);
-          }
+          },
         },
       });
-
-      console.log(this.children[input.componentName]);
     });
   }
 

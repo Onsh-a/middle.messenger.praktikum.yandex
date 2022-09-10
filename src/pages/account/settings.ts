@@ -5,7 +5,7 @@ import Modal from '../../components/modal/modal';
 import { loginPageProps, buttonProps, inputProps } from '../../utils/types';
 import template from './settings.hbs';
 
-export class AccountPage extends Block {
+export default class AccountPage extends Block {
   constructor(props: loginPageProps) {
     super('div', props);
   }

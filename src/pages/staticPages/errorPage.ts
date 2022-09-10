@@ -2,7 +2,7 @@ import Block from '../../utils/Block';
 import { errorPageProps } from '../../utils/types';
 import template from './errorPage.hbs';
 
-export class ErrorPage extends Block {
+export default class ErrorPage extends Block {
   constructor(props: errorPageProps) {
     super('div', props);
   }

@@ -1,17 +1,15 @@
-export interface loginPageProps {
-  pageTitle: string,
+export interface defaultPageProps {
+  pageTitle: string;
+}
+
+export interface loginPageProps extends defaultPageProps {
   buttons: object | null;
   inputs: object | null;
 }
 
-export interface signInProps {
-  pageTitle: string,
+export interface signInProps extends defaultPageProps {
   buttons: object | null;
   inputs: object | null;
-}
-
-export interface chatsPageProps {
-  pageTitle: string,
 }
 
 export interface buttonProps {
@@ -31,8 +29,7 @@ export interface inputProps {
   componentName: string,
 }
 
-export interface navigationProps {
-  pageTitle: string,
+export interface navigationProps extends defaultPageProps {
   links: object[],
 }
 
@@ -51,8 +48,7 @@ export interface ButtonProps {
   buttonLikeLink: boolean
 }
 
-export interface errorPageProps {
-  pageTitle: string,
+export interface errorPageProps extends defaultPageProps {
   errorCode: string,
   errorMessage: string,
   errorLink: string,
@@ -73,5 +69,13 @@ export interface HTMLInputEvent {
 }
 
 export interface chatPreviewProps {
+  name: string,
+  lastMessage: string,
+  lastMessageTime: string,
+  lastMessagesQty: string,
+  componentName: string,
+}
 
+export interface chatsPageProps extends defaultPageProps {
+  chatPreviews: chatPreviewProps
 }
