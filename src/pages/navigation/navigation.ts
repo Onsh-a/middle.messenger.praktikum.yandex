@@ -1,5 +1,5 @@
 import Block from '../../utils/Block';
-import { NavigationLink } from '../../components/navigationLink/navLink';
+import NavigationLink from '../../components/navigationLink/navLink';
 import { navigationProps, navigationLinkProps } from '../../utils/types';
 import template from './navigation.hbs';
 

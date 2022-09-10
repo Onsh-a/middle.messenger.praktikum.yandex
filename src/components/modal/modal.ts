@@ -1,9 +1,9 @@
 import Block from '../../utils/Block';
-import { Button } from '../button/button';
+import Button from '../button/button';
 import template from './modal.hbs';
 import { modalButtonProps, modalProps } from '../../utils/types';
 
-export class Modal extends Block {
+export default class Modal extends Block {
   constructor(props: modalProps) {
     super('div', props);
   }

@@ -1,7 +1,7 @@
 import Block from '../../utils/Block';
-import { Input } from '../../components/input/input';
-import { Button } from '../../components/button/button';
-import { Modal } from '../../components/modal/modal';
+import Input from '../../components/input/input';
+import Button from '../../components/button/button';
+import Modal from '../../components/modal/modal';
 import { loginPageProps, buttonProps, inputProps } from '../../utils/types';
 import template from './settings.hbs';
 

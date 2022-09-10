@@ -2,7 +2,7 @@ import Block from '../../utils/Block';
 import { buttonProps } from '../../utils/types';
 import template from './button.hbs';
 
-export class Button extends Block {
+export default class Button extends Block {
   constructor(props: buttonProps) {
     super('div', props);
   }

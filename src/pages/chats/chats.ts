@@ -1,8 +1,8 @@
 import Block from '../../utils/Block';
 import { buttonProps, chatsPageProps } from '../../utils/types';
+import Button from '../../components/button/button';
+import ChatPreview from '../../components/chatPreview/chatPreview';
 import template from './chats.hbs';
-import { Button } from '../../components/button/button';
-import { ChatPreview } from '../../components/chatPreview/chatPreview';
 
 export class Chats extends Block {
   constructor(props: chatsPageProps) {

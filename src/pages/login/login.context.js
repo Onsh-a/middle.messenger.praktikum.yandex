@@ -6,6 +6,7 @@ const loginContext = {
       key: 'login',
       type: 'text',
       componentName: 'inputLogin',
+      validation_rule: 'login',
       common: true,
     },
     {
@@ -13,6 +14,7 @@ const loginContext = {
       key: 'password',
       type: 'text',
       componentName: 'inputPassword',
+      validation_rule: 'password',
       common: true,
     }],
   buttons: [

@@ -18,7 +18,7 @@ class Block {
 
   private eventBus: () => EventBus;
 
-  private _element: HTMLElement | null = null;
+  protected _element: HTMLElement | null = null;
 
   readonly _meta: { tagName: string; props: any; };
 
@@ -124,7 +124,13 @@ class Block {
   private _render() {
     const fragment = this.render();
 
-    this._element = fragment.firstElementChild as HTMLElement;
+    let newElement = this._element = fragment.firstElementChild as HTMLElement;
+
+    if (this._element) {
+      this._element.replaceWith(newElement);
+    }
+
+    this._element = newElement
 
     this._addEvents();
   }
