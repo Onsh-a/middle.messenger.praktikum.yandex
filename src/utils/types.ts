@@ -1,3 +1,13 @@
+export interface RequestQuery {
+  timeout?: number,
+  data?: Record<string, string> | undefined,
+  headers?: {[key: string]:string},
+}
+
+export interface RequestQueryExtended extends RequestQuery {
+  method: string,
+}
+
 export interface defaultPageProps {
   pageTitle: string;
 }
