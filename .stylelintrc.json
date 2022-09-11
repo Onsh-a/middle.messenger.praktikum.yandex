@@ -1,6 +1,6 @@
 {
   "extends": "stylelint-config-standard",
-  "ignoreFiles": ["build/*"],
+  "ignoreFiles": ["dist/*"],
   "plugins": ["stylelint-scss"],
   "rules": {
     "color-hex-case": "upper",
