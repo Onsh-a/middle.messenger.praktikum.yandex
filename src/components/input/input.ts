@@ -14,7 +14,7 @@ export default class Input extends Block {
     if (!this._element) return;
     if (hasError) {
       this._element.classList.add('error');
-      const errorBlock = this._element.querySelector('.base-input__error') as HTMLElement;
+      const errorBlock = this._element.querySelector('.base-input-error') as HTMLElement;
       if (errorBlock) errorBlock.innerText = errorMessage;
       return;
     }

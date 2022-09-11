@@ -23,6 +23,7 @@ const loginContext = {
       type: 'submit',
       href: null,
       buttonClass: 'common',
+      form: 'auth-form',
       componentName: 'buttonEnter',
       buttonLikeLink: false,
     },

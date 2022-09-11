@@ -72,6 +72,7 @@ const signinContext = {
       href: null,
       buttonClass: 'common',
       componentName: 'buttonSignin',
+      form: 'auth-form',
       buttonLikeLink: false,
     },
     {

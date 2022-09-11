@@ -67,6 +67,7 @@ const settingsContext = {
       {
         text: 'Сохранить',
         buttonClass: 'common disable',
+        form: 'settings-form',
         componentName: 'buttonSave',
       },
     ],
