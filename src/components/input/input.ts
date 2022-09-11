@@ -1,11 +1,14 @@
 import Block from '../../utils/Block';
 import { inputProps } from '../../utils/types';
 import template from './input.hbs';
+import Validator from "../../utils/Validation";
 
 export default class Input extends Block {
   constructor(props: inputProps) {
     super('div', props);
   }
+
+  validator = new Validator();
 
   toggleError = (hasError:boolean, errorMessage:string) => {
     if (!this._element) return;

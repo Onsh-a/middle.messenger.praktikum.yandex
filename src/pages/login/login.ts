@@ -7,12 +7,13 @@ import {
 } from '../../utils/types';
 import template from './login.hbs';
 
-const validation = new Validator();
-
 export default class Login extends Block {
   constructor(props: loginPageProps) {
     super('div', props);
   }
+
+  _form: HTMLFormElement | null = null
+  validation: Validator = new Validator();
 
   init() {
     this.props.buttons.forEach((button: buttonProps, index: number) => {
@@ -26,7 +27,7 @@ export default class Login extends Block {
         ...this.props.inputs[index],
         events: {
           focusout: (e: HTMLInputEvent) => {
-            const { hasError, errorMessage } = validation.validate(e);
+            const { hasError, errorMessage } = this.validation.validate(e);
             // если есть идея, как правильно сказать ts, что в this.children[input.componentName]
             // лежит инстанс класса input, буду благодарен
             // @ts-ignore

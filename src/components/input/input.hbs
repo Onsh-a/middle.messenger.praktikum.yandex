@@ -8,6 +8,7 @@
 {{#if settings}}
   <div class="settings-input__wrapper">
     <label class="settings-label" for="{{ key }}">{{ name }}</label>
-    <input class="settings-input" id="{{ key }}" name="{{ key }}" {{#if readonly}} readonly='readonly'{{/if}} type="{{ type }}" value="{{ value }}">
+    <div class="base-input__error">Произошла ошибка</div>
+    <input class="settings-input" id="{{ key }}" data-validation="{{ validation_rule }}" name="{{ key }}" {{#if readonly}} readonly='readonly'{{/if}} type="{{ type }}" value="{{ value }}">
   </div>
 {{/if}}

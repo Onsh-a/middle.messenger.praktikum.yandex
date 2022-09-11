@@ -13,7 +13,6 @@
 
       .base-input__error {
         opacity: 1;
-        transition: .3s;
       }
     }
 
@@ -25,6 +24,7 @@
       max-height: 37px;
 
       &__error {
+        transition: .3s;
         opacity: 0;
         color: $danger-color;
         font-size: 10px;
@@ -89,6 +89,22 @@
 
     &:not(:last-of-type) {
       border-bottom: 1px solid #EAEAEA;
+    }
+
+    &.error {
+      .base-input__error {
+        opacity: 1;
+      }
+    }
+
+    .base-input__error {
+      opacity: 0;
+      transition: .3s;
+      flex: 1;
+      text-align: end;
+      font-size: 13px;
+      line-height: 13px;
+      color: $danger-color;
     }
   }
 }

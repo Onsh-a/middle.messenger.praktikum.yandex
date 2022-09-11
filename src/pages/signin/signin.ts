@@ -7,12 +7,14 @@ import {
 import template from './signin.hbs';
 import Validator from '../../utils/Validation';
 
-const validation = new Validator();
-
 export default class SignIn extends Block {
   constructor(props: signInProps) {
     super('div', props);
+    this._form = this._element ? this._element.querySelector('form.auth-form') : null
   }
+
+  _form: HTMLFormElement | null = null
+  validation: Validator = new Validator();
 
   init() {
     this.props.buttons.forEach((button: buttonProps, index: number) => {
@@ -26,9 +28,9 @@ export default class SignIn extends Block {
         ...this.props.inputs[index],
         events: {
           focusout: (e: HTMLInputEvent) => {
-            const { hasError, errorMessage } = validation.validate(e);
+            const { hasError, errorMessage } = this.validation.validate(e);
             // если есть идея, как правильно сказать ts, что в this.children[input.componentName]
-            // лежит инстанс класса input, буду благодарен
+            // лежит инстанс класса Input, буду благодарен
             // @ts-ignore
             this.children[input.componentName].toggleError(hasError, errorMessage);
           },

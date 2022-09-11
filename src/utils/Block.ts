@@ -66,7 +66,7 @@ class Block {
     const { events = {} } = this.props as { events: Record<string, () => void> };
 
     Object.keys(events).forEach((eventName) => {
-      this._element?.addEventListener(eventName, events[eventName]);
+      this._element?.addEventListener(eventName, events[eventName].bind(this));
     });
   }
 

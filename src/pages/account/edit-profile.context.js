@@ -7,6 +7,7 @@ const editProfileContext = {
       name: 'Почта',
       key: 'email',
       componentName: 'inputEmail',
+      validation_rule: 'email',
       type: 'text',
       value: 'test@yandex.ru',
       readonly: false,
@@ -16,6 +17,7 @@ const editProfileContext = {
       name: 'Логин',
       key: 'login',
       componentName: 'inputLogin',
+      validation_rule: 'login',
       type: 'text',
       value: 'SomeLogin123',
       readonly: false,
@@ -23,8 +25,9 @@ const editProfileContext = {
     {
       settings: true,
       name: 'Имя',
-      key: 'name',
+      key: 'first_name',
       componentName: 'inputName',
+      validation_rule: 'name',
       type: 'text',
       value: 'Иван',
       readonly: false,
@@ -32,8 +35,9 @@ const editProfileContext = {
     {
       settings: true,
       name: 'Фамилия',
-      key: 'lastname',
+      key: 'last_name',
       componentName: 'inputLastname',
+      validation_rule: 'name',
       type: 'text',
       value: 'Иванов',
       readonly: false,
@@ -43,6 +47,7 @@ const editProfileContext = {
       name: 'Имя в чате',
       key: 'chat-name',
       componentName: 'inputChatName',
+      validation_rule: 'name',
       type: 'text',
       value: 'Иван',
       readonly: false,
@@ -52,8 +57,9 @@ const editProfileContext = {
       name: 'Телефон',
       key: 'phone',
       componentName: 'inputPhone',
+      validation_rule: 'phone',
       type: 'text',
-      value: '+7 (999) 999 99 99',
+      value: '+79999999999',
       readonly: false,
     },
   ],
@@ -62,7 +68,32 @@ const editProfileContext = {
       text: 'Сохранить',
       buttonClass: 'common',
       componentName: 'buttonSave',
+      type: 'submit',
+      form: 'settings-form'
     },
   ],
+  events: {
+    submit: function(evt) {
+      evt.preventDefault();
+      const errors = [];
+      const childrenKeys = Object.keys(this.children);
+      childrenKeys.forEach(key => {
+        const child = this.children[key];
+        if (child.hasOwnProperty('validator')) {
+          const input = child._element.querySelector('input');
+          const { hasError, errorMessage } = child.validator.validate(null, input);
+          if (hasError) errors.push(hasError);
+          child.toggleError(hasError, errorMessage);
+        }
+      })
+
+      if (errors.length > 0) {
+        console.log('Форма заполнена с ошибками');
+        return
+      }
+      const formData = new FormData(this._form);
+      console.log(...formData);
+    }
+  }
 };
 export default editProfileContext;

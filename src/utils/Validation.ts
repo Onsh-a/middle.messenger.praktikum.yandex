@@ -35,9 +35,10 @@ export default class Validator {
 
   private _element: HTMLInputElement | null = null;
 
-  validate(event: HTMLInputEvent) {
-    if (!event.target) throw new Error('Failed to find object of validation');
-    this._element = event.target;
+  validate(event: HTMLInputEvent, specificTarget:HTMLInputElement | null = null) {
+    const validationTarget = specificTarget ? specificTarget : event.target;
+    if (!validationTarget) throw new Error('Failed to find object of validation');
+    this._element = validationTarget;
     const { value } = this._element;
     const validationType = this._element.dataset.validation || 'none';
     const { checkRegExp, errorMessage } = this._validationRules[validationType];
