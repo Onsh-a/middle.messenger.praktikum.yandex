@@ -1,15 +1,14 @@
-@import "reset";
-@import "fonts";
-@import "variables";
-@import "src/pages/staticPages/static";
-@import "src/pages/login/login";
-@import "src/pages/account/settings";
-@import "src/pages/navigation/navigation";
-@import "src/pages/chats/chats";
-@import "src/components/input/input";
-@import "src/components/button/button";
-@import "src/components/modal/modal";
-@import "src/components/chatPreview/chatPreview";
+@import 'reset';
+@import 'fonts';
+@import 'variables';
+@import 'src/pages/staticPages/static';
+@import 'src/pages/account/settings';
+@import 'src/pages/navigation/navigation';
+@import 'src/pages/chats/chats';
+@import 'src/components/input/input';
+@import 'src/components/button/button';
+@import 'src/components/modal/modal';
+@import 'src/components/chatPreview/chatPreview';
 
 body {
   background: $base-gradient;
