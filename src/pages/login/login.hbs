@@ -3,12 +3,10 @@
     {{> icons login=true}}
     <h2 class="popup-title__text">Войти</h2>
   </div>
-  <form action="#" class="auth-form">
-    {{#each inputs}}
-      {{> input }}
-    {{/each}}
-    {{#each buttons}}
-      {{> button }}
-    {{/each}}
+  <form action="#" class="auth-form" id="auth-form">
+    {{{ inputLogin }}}
+    {{{ inputPassword }}}
+    {{{ buttonEnter }}}
+    {{{ buttonNoAccount }}}
   </form>
 </div>

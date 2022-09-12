@@ -1,12 +1,14 @@
 {{#if common}}
-<div class="base-input__wrapper">
+<div class="base-input-wrapper">
   <label class="base-label" for="{{ key }}">{{ name }}</label>
-  <input class="base-input" id="{{ key }}" name="{{ key }}" type="{{ type }}">
+  <input class="base-input {{#if has_error }} error {{/if}}" data-validation="{{ validation_rule }}" id="{{ key }}" name="{{ key }}" type="{{ type }}">
+  <div class="base-input-error">Произошла ошибка</div>
 </div>
 {{/if}}
 {{#if settings}}
-  <div class="settings-input__wrapper">
+  <div class="settings-input-wrapper">
     <label class="settings-label" for="{{ key }}">{{ name }}</label>
-    <input class="settings-input" id="{{ key }}" name="{{ key }}" {{#if readonly}} readonly='readonly'{{/if}} type="{{ type }}" value="{{ value }}">
+    <div class="base-input-error">Произошла ошибка</div>
+    <input class="settings-input" id="{{ key }}" data-validation="{{ validation_rule }}" name="{{ key }}" {{#if readonly}} readonly='readonly'{{/if}} type="{{ type }}" value="{{ value }}">
   </div>
 {{/if}}

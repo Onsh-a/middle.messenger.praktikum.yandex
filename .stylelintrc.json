@@ -1,0 +1,12 @@
+{
+  "extends": "stylelint-config-standard",
+  "ignoreFiles": ["dist/*"],
+  "plugins": ["stylelint-scss"],
+  "rules": {
+    "color-hex-case": "upper",
+    "color-hex-length": "long",
+    "string-quotes": "single",
+    "function-url-quotes": "never",
+    "number-leading-zero": "never"
+  }
+}

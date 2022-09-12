@@ -8,17 +8,26 @@
       </div>
     </div>
 
-    <form action="">
-      {{#each inputs}}
-        {{> input }}
-      {{/each}}
+    <form action="" id="settings-form">
+      {{{ inputEmail }}}
+      {{{ inputLogin }}}
+      {{{ inputName }}}
+      {{{ inputLastname }}}
+      {{{ inputChatName }}}
+      {{{ inputPhone }}}
+      {{{ inputOldPwd }}}
+      {{{ inputNewPwd }}}
+      {{{ inputRepeatNewPwd }}}
     </form>
 
     <div class="controls">
-    {{#each buttons}}
-      {{> button }}
-    {{/each}}
+      {{{ buttonEdit }}}
+      {{{ buttonChangePassword }}}
+      {{{ buttonLeaveAccount }}}
+      {{{ buttonSave }}}
     </div>
+
+    {{{ modal }}}
+
   </div>
-  {{> modal }}
 </section>
